@@ -1,5 +1,7 @@
 package com.amigoscode.beans;
 
+import java.util.function.Predicate;
+
 public class Car {
 
     private final Integer id;
@@ -58,5 +60,10 @@ public class Car {
                 ", year=" + year +
                 ", price=" + price +
                 '}';
+    }
+
+    public static Predicate<Car> isBlue()
+    {
+        return car -> car.getColor().equals("blue");
     }
 }

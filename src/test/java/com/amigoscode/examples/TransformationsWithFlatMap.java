@@ -5,9 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TransformationsWithFlatMap {
 
@@ -31,6 +34,11 @@ public class TransformationsWithFlatMap {
     @Test
     public void withFlatMap() throws Exception {
         // [Mariam, Alex, Ismail, John, Alesha, Andre, Susy, Ali]
+
+        List<String> namesFlatStream = arrayListOfNames.stream()
+                .flatMap(Collection::stream).toList();
+        assertEquals(namesFlatStream.size(),8);
+
     }
 
     @Test

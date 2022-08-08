@@ -1,6 +1,8 @@
 package com.amigoscode.beans;
 
-public class Person {
+import java.util.Objects;
+
+public class Person implements Comparable{
 
     private final Integer id;
     private final String firstName;
@@ -58,4 +60,17 @@ public class Person {
                 ", age=" + age +
                 '}';
     }
+
+    @Override
+    public int compareTo(Object o) {
+        Person i = (Person) o;
+        if (this.getAge() < i.getAge()) {
+            return -1;
+        }
+        if (Objects.equals(this.getId(), i.getId())) {
+            return 0;
+        }
+        return 1;
+    }
+
 }

@@ -12,11 +12,19 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
 public class Filtering {
 
     @Test
     public void filter() throws Exception {
         List<Car> cars = MockData.getCars();
+        List <Car> carsLess20K = cars.stream().filter(car -> car.getPrice() < 20_000.00).toList();
+        carsLess20K.stream().limit(5).forEach(System.out::println);
+        assertEquals("Mercury", carsLess20K.get(1).getMake());
+        assertEquals("Ford", carsLess20K.get(2).getMake());
     }
 
     @Test

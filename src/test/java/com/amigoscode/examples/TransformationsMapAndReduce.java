@@ -12,12 +12,23 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TransformationsMapAndReduce {
 
     @Test
     void yourFirstTransformationWithMap() throws IOException {
         List<Person> people = MockData.getPeople();
+        List<PersonDTO> personDTOS =
+                people.stream()
+                        .map(PersonDTO::map)
+                        .toList();
+        assertTrue(people.size() == personDTOS.size());
+
     }
+
+
 
     @Test
     void mapToDoubleAndFindAverageCarPrice() throws IOException {
