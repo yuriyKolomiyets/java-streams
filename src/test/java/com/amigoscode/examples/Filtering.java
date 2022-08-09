@@ -5,6 +5,7 @@ import com.amigoscode.beans.Person;
 import com.amigoscode.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalInt;
@@ -60,11 +61,25 @@ public class Filtering {
     @Test
     public void allMatch() throws Exception {
         int[] even = {2, 4, 6, 8, 10};
+        List<Integer> intList = new ArrayList<>();
+        for (int i = 0; i < even.length-1; i++) {
+            intList.add(even[i]);
+        }
+        boolean allEven = intList.stream().allMatch(i -> i % 2 == 0);
+
+        assertTrue(allEven);
     }
 
     @Test
     public void anyMatch() throws Exception {
-        int[] evenAndOneOdd = {2, 4, 6, 8, 10, 11};
+        int[] evenAndOneOdd = {1, 4, 6, 8, 10, 11};
+
+        List<Integer> intList = new ArrayList<>();
+        for (int i = 0; i < evenAndOneOdd.length-1; i++) {
+            intList.add(evenAndOneOdd[i]);
+        }
+        assertTrue(intList.stream().anyMatch(i -> i % 2 == 1));
+
     }
 
 }
