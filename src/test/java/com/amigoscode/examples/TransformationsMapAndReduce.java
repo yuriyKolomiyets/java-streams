@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -31,8 +32,14 @@ public class TransformationsMapAndReduce {
 
 
     @Test
-    void mapToDoubleAndFindAverageCarPrice() throws IOException {
+    void toSet() throws IOException {
         List<Car> cars = MockData.getCars();
+
+        Set<String> carModels = cars.stream()
+                .map(Car::getModel).limit(10)
+                .collect(Collectors.toSet());
+
+        System.out.println(carModels);
     }
 
     @Test

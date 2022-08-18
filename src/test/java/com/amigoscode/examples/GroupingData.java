@@ -2,6 +2,7 @@ package com.amigoscode.examples;
 
 
 import com.amigoscode.beans.Car;
+import com.amigoscode.beans.Person;
 import com.amigoscode.mockdata.MockData;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +31,9 @@ public class GroupingData {
                 "Alex",
                 "Alex"
         );
+        Map<Character, List<String>> groupByAlphabet = names.stream().collect(
+                Collectors.groupingBy(e -> e.charAt(0)));
+        System.out.println(groupByAlphabet);
     }
 
 }
