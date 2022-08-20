@@ -13,8 +13,7 @@ public class HowStreamsWork {
     public void understandingCollect() throws Exception {
         List<String> emails = MockData.getPeople()
                 .stream()
-                .map(Person::getEmail)
-                .collect(Collectors.toList());
+                .map(Person::getEmail).toList();
 
         emails.forEach(System.out::println);
     }
