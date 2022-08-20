@@ -31,7 +31,7 @@ public class Filtering {
     @Test
     public void dropWhile() throws Exception {
         System.out.println("using filter");
-        Stream.of(2, 4, 6, 8, 9, 10, 12).filter(n -> n % 2 == 0)
+        Stream.of(2, 4, 6, 8, 9, 10, 12).dropWhile(x -> x <= 5)
                 .forEach(n -> System.out.print(n + " "));
         System.out.println();
         System.out.println("using dropWhile");
